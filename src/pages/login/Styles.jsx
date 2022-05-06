@@ -27,7 +27,7 @@ export const Input = styled.input`
   font-family: "Verdana", sans-serif;
 
   &:focus {
-    outline-color: #6521ff;
+    outline-color: ${colors.PrimaryPurple};
   }
 `;
 
@@ -41,4 +41,8 @@ export const Button = styled.button`
   font-size: 16px;
   font-family: "Verdana", sans-serif;
   border-radius: 2px;
+
+  &:active {
+    opacity: 0.9;
+  }
 `;
