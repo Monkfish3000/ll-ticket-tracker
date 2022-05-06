@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "lltickettracker",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/Users/monkfish/code/ll-ticket-tracker/amplify/backend/api/lltickettracker/schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 365,
+      "apiKeyExpirationDate": "2023-05-06T07:51:42.599Z",
+      "keyDescription": "demo"
+    }
+  }
+}

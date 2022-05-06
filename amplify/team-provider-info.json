@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-lltickettracker-dev-205048-authRole",
+      "UnauthRoleArn": "arn:aws:iam::020129675265:role/amplify-lltickettracker-dev-205048-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::020129675265:role/amplify-lltickettracker-dev-205048-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-lltickettracker-dev-205048-deployment",
+      "UnauthRoleName": "amplify-lltickettracker-dev-205048-unauthRole",
+      "StackName": "amplify-lltickettracker-dev-205048",
+      "StackId": "arn:aws:cloudformation:eu-west-1:020129675265:stack/amplify-lltickettracker-dev-205048/48cd9c20-cca4-11ec-8978-02ffa972845d",
+      "AmplifyAppId": "dkzy126zf43yr"
+    },
+    "categories": {
+      "auth": {
+        "lltickettrackerd11ad631": {}
+      }
+    }
+  }
+}
