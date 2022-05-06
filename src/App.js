@@ -1,17 +1,5 @@
+import Login from "./pages/login/login";
 
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        
-        <p>
-          Hello Tony
-        </p> 
-        
-      </header>
-    </div>
-  );
+export default function App() {
+  return <Login />;
 }
-
-export default App;
