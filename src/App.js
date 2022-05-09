@@ -5,6 +5,9 @@ import * as ROUTES from "./constants/routes";
 import Dashboard from "./pages/dashboard/dashboard";
 
 export default function App() {
+  // TODO protect dashboard route
+  const PrivateRoute = ({ children, ...rest }) => {};
+
   return (
     <>
       <Router>
