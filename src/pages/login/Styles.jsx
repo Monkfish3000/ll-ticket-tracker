@@ -41,6 +41,7 @@ export const Button = styled.button`
   font-size: 16px;
   font-family: "Verdana", sans-serif;
   border-radius: 2px;
+  cursor: pointer;
 
   &:active {
     opacity: 0.9;

@@ -1,10 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { Container, Input, Button, FormContainer } from "./Styles";
 import { Auth } from "aws-amplify";
+import * as ROUTES from "../../constants/routes";
+
+// M0nkF1shrules
 
 export default function Login() {
-  const handleLogin = (event) => {
+  const navigate = useNavigate();
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async (event) => {
     event.preventDefault();
+
+    try {
+      const user = await Auth.signIn(username, password);
+      console.log(user);
+      if (user) {
+        navigate(ROUTES.DASHBOARD);
+      }
+    } catch (error) {
+      setUsername("");
+      setPassword("");
+    }
   };
 
   useEffect(() => {
@@ -17,11 +37,13 @@ export default function Login() {
         <form onSubmit={handleLogin}>
           <Input
             type="text"
-            onChange={({ target }) => console.log(target.value)}
+            value={username}
+            onChange={({ target }) => setUsername(target.value)}
           />
           <Input
             type="password"
-            onChange={({ target }) => console.log(target.value)}
+            value={password}
+            onChange={({ target }) => setPassword(target.value)}
           />
           <Button type="submit">Login</Button>
         </form>
