@@ -6,6 +6,7 @@ import * as ROUTES from "../../constants/routes";
 
 export default function Dashboard() {
   const navigate = useNavigate();
+  const username = "monkfish";
 
   const handleLogOut = async () => {
     try {
@@ -16,9 +17,21 @@ export default function Dashboard() {
     }
   };
 
+  const handleResendCode = async () => {
+    try {
+      await Auth.resendSignUp(username);
+      console.log("Code sent");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleConfirm = async () => {};
+
   return (
     <>
       <Button onClick={handleLogOut}>Sign Out</Button>
+      <Button onClick={handleResendCode}>Resend Confirmation Code</Button>
+      <Button onClick={handleConfirm}>Confirm User</Button>
     </>
   );
 }
