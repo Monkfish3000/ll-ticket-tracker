@@ -1,0 +1,23 @@
+body {
+  background-color: #fafafa;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Verdana", sans-serif;
+}
+
+.amplify-button.amplify-field-group__control {
+  background-color: #6521ff;
+  display: none;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 66vh;
+  border: none;
+}
+
+data-amplify-router-content {
+  border: none;
+}

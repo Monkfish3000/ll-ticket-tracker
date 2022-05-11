@@ -3,15 +3,38 @@ import Login from "./pages/login/login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import * as ROUTES from "./constants/routes";
 import Dashboard from "./pages/dashboard/dashboard";
-import { Authenticator } from "@aws-amplify/ui-react";
+import {
+  Authenticator,
+  AmplifyProvider,
+  Theme,
+  useTheme,
+} from "@aws-amplify/ui-react";
+import "@aws-amplify/ui-react/styles.css";
+import "./styles.css";
+import { FaFileExport } from "react-icons/fa";
 
 export default function App() {
-  // TODO protect dashboard route
-  const PrivateRoute = ({ children, ...rest }) => {};
+  const formFields = {
+    signIn: {
+      username: {
+        labelHidden: true,
+        placeholder: "",
+        isRequired: true,
+        label: "Email:",
+      },
+      password: {
+        placeholder: "",
+      },
+    },
+  };
 
   return (
     <>
-      <Authenticator>
+      <Authenticator
+        hideSignUp={true}
+        hideSignIn={true}
+        formFields={formFields}
+      >
         <Router>
           <Routes>
             <Route path={ROUTES.LOGIN} element={<Login />} />
