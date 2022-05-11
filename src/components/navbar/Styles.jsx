@@ -9,5 +9,5 @@ export const StyledNavbar = styled.nav`
 `;
 
 export const Logo = styled.img`
-  margin: 0 auto;
+  height: 75px;
 `;
