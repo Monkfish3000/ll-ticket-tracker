@@ -19,6 +19,7 @@ export default function Navbar() {
     try {
       await Auth.signOut();
       navigate(ROUTES.LOGIN);
+      console.log("reaches here");
     } catch (error) {
       console.log(error);
     }
