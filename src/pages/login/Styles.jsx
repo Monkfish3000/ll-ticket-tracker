@@ -24,7 +24,6 @@ export const Input = styled.input`
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 2px;
   font-size: 16px;
-  font-family: "Verdana", sans-serif;
 
   &:focus {
     outline-color: ${colors.PrimaryPurple};
@@ -39,7 +38,7 @@ export const Button = styled.button`
   background-color: ${colors.PrimaryPurple};
   border: none;
   font-size: 16px;
-  font-family: "Verdana", sans-serif;
+
   border-radius: 2px;
   cursor: pointer;
 
