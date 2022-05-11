@@ -9,7 +9,6 @@ export const Button = styled.button`
   background-color: ${colors.PrimaryPurple};
   border: none;
   font-size: 16px;
-  font-family: "Verdana", sans-serif;
   border-radius: 2px;
   cursor: pointer;
 
