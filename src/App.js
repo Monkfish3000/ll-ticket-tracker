@@ -1,47 +1,51 @@
 /* eslint-disable no-unreachable */
+import React, { useState, useEffect } from "react";
 import Login from "./pages/login/login";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import * as ROUTES from "./constants/routes";
 import Dashboard from "./pages/dashboard/dashboard";
-import {
-  Authenticator,
-  AmplifyProvider,
-  Theme,
-  useTheme,
-} from "@aws-amplify/ui-react";
-import "@aws-amplify/ui-react/styles.css";
+import { Auth } from "aws-amplify";
+
 import "./styles.css";
-import { FaFileExport } from "react-icons/fa";
 
 export default function App() {
-  const formFields = {
-    signIn: {
-      username: {
-        labelHidden: true,
-        placeholder: "",
-        isRequired: true,
-        label: "Email:",
-      },
-      password: {
-        placeholder: "",
-      },
-    },
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    Auth.currentAuthenticatedUser()
+      .then((user) => {
+        setUser(user);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  const ProtectedRoute = ({ user, children }) => {
+    if (!user) {
+      return <Navigate to="/" replace />;
+    }
+    return children;
   };
 
   return (
     <>
-      <Authenticator
-        hideSignUp={true}
-        hideSignIn={true}
-        formFields={formFields}
-      >
-        <Router>
-          <Routes>
-            <Route path={ROUTES.LOGIN} element={<Login />} />
-            <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
-          </Routes>
-        </Router>
-      </Authenticator>
+      <Router>
+        <Routes>
+          <Route path={ROUTES.LOGIN} element={<Login />} />
+          <Route
+            path={ROUTES.DASHBOARD}
+            element={
+              <ProtectedRoute user={user}>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </Router>
     </>
   );
 }

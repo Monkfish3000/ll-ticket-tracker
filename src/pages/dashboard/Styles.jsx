@@ -16,3 +16,16 @@ export const Button = styled.button`
     opacity: 0.9;
   }
 `;
+
+export const Hero = styled.div`
+  height: 60vh;
+  width: 60vw;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    color: hotpink;
+  }
+`;

@@ -4,8 +4,6 @@ import { Container, Input, Button, FormContainer } from "./Styles";
 import { Auth } from "aws-amplify";
 import * as ROUTES from "../../constants/routes";
 
-// M0nkF1shrules
-
 export default function Login() {
   const navigate = useNavigate();
 
@@ -17,7 +15,7 @@ export default function Login() {
 
     try {
       const user = await Auth.signIn(username, password);
-      console.log(user);
+      
       if (user) {
         navigate(ROUTES.DASHBOARD);
       }
